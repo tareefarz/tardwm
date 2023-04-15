@@ -10,8 +10,8 @@ static const int systraypinningfailfirst = 1;   /* 1: if pinning fails, display 
 static const int showsystray        = 1;        /* 0 means no systray */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "OperatorMono:size=10", "EmojiOneColor" };
-static const char dmenufont[]       = "OperatorMono:size=10";
+static const char *fonts[]          = { "CascadiaCode:size=10", "NotoColorEmoji:size=10" };
+static const char dmenufont[]       = "CascadiaCode:size=10";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
@@ -63,7 +63,7 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 
-static const char *dmenucmd[] = { "dmenu_run", "-l", "10", "-g", "1", "-h", "12", "-c", "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
+static const char *dmenucmd[] = { "dmenu_run",  NULL };
 static const char *termcmd[]  = { "kitty", NULL };
 
 
@@ -72,7 +72,8 @@ static const char *volupcmd[] = { "pamixer", "-i", "5",  NULL };
 static const char *voldowncmd[] = { "pamixer", "-d", "5",  NULL };
 static const char *brupcmd[] = { "xbacklight", "-inc", "5",  NULL };
 static const char *brdowncmd[] = { "xbacklight", "-dec", "5",  NULL };
-static const char *firefoxcmd[] = { "firefox",  NULL };
+static const char *emojicmd[] = { "emojiselector",  NULL };
+static const char *chromiumcmd[] = { "chromium",  NULL };
 
 #include "movestack.c"
 static const Key keys[] = {
@@ -84,7 +85,8 @@ static const Key keys[] = {
   { 0,                            XF86XK_AudioRaiseVolume, spawn,   {.v = volupcmd} },
   { 0,                            XF86XK_MonBrightnessUp, spawn,   {.v = brupcmd} },
   { 0,                            XF86XK_MonBrightnessDown, spawn,   {.v = brdowncmd} },
-  { ControlMask,                  XK_b,      spawn,          {.v = firefoxcmd} },
+  { ControlMask,                  XK_b,      spawn,          {.v = chromiumcmd} },
+  {  MODKEY,                        XK_e,      spawn,   {.v =   emojicmd} },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
