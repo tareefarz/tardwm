@@ -15,7 +15,7 @@ static const char dmenufont[]       = "CascadiaCode:size=10";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
-static const char col_gray4[]       = "#eeeeee";
+static const char col_gray4[]       = "#FFFFFF";
 static const char col_cyan[]        = "#492080";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
