@@ -31,9 +31,9 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class      instance    title       tags mask     iscentered   isfloating   monitor */
-	{ "Gimp",     NULL,       NULL,       0,            0,           1,           -1 },
-	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           0,           -1 },
+	/* class      instance    title       tags mask     isfloating   monitor */
+	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
+	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
 };
 
 /* layout(s) */
@@ -74,6 +74,7 @@ static const char *brupcmd[] = { "xbacklight", "-inc", "5",  NULL };
 static const char *brdowncmd[] = { "xbacklight", "-dec", "5",  NULL };
 static const char *emojicmd[] = { "emojiselector",  NULL };
 static const char *chromiumcmd[] = { "chromium",  NULL };
+static const char *thunarcmd[] = { "thunar", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -86,6 +87,7 @@ static const Key keys[] = {
   { 0,                            XF86XK_MonBrightnessDown, spawn,   {.v = brdowncmd} },
   { ControlMask,                  XK_b,      spawn,          {.v = chromiumcmd} },
   {  MODKEY,                        XK_e,      spawn,   {.v =   emojicmd} },
+	{ MODKEY,                       XK_n,      spawn,      {.v = thunarcmd} },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
