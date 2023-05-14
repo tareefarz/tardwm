@@ -75,6 +75,7 @@ static const char *brdowncmd[] = { "xbacklight", "-dec", "5",  NULL };
 static const char *emojicmd[] = { "emojiselector",  NULL };
 static const char *chromiumcmd[] = { "chromium",  NULL };
 static const char *thunarcmd[] = { "thunar", NULL };
+static const char *scrotcmd[] = { "scrot", "-p", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -87,6 +88,7 @@ static const Key keys[] = {
   { 0,                            XF86XK_MonBrightnessDown, spawn,   {.v = brdowncmd} },
   { ControlMask,                  XK_b,      spawn,          {.v = chromiumcmd} },
   {  MODKEY,                        XK_e,      spawn,   {.v =   emojicmd} },
+  {  MODKEY,                        XK_s,      spawn,   {.v =   scrotcmd} },
 	{ MODKEY,                       XK_n,      spawn,      {.v = thunarcmd} },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
@@ -106,7 +108,7 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
 	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
 	{ MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },
-	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
+	{ MODKEY,                       XK_period,focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
 	TAGKEYS(                        XK_1,                      0)
